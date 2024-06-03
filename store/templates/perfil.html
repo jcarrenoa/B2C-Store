@@ -1,0 +1,33 @@
+{% extends 'base_store.html' %}
+{% block content %}
+{% load static %}
+
+    <main class="main-perfil">
+        <div class="cover-photo-perfil" style="background-image: url('{{ user.portada.url}}')" ></div>
+        <div class="profile-section">
+            <img src="{{ user.imagen.url }}" alt="Foto de Perfil" class="profile-photo">
+            <div class="profile-info">
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <p>@{{ user.username }}</p>
+            </div>
+        </div>
+        <nav class="menu-perfil">
+            <a href="{% url 'informacion_basica' %}">Información Básica</a>
+            <a href="{% url 'facturas' %}">Facturación</a>
+            <a href="{% url 'configuracion' %}">Configuración</a>
+        </nav>
+
+        {% block menu_perfil %}
+        {% endblock %}
+
+        {% if messages %}
+            <div class="messages-contact">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </main>
+
+{% endblock %}

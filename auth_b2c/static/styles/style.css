@@ -1,0 +1,246 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+}
+
+*, *:before, *:after { /* Hack boxmodel */
+    box-sizing: inherit;
+}
+
+body{
+	background: #fffcfd;
+}
+
+header{
+	width: 100%;
+	height: 90px;
+	background-color: var(--marronO);
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 0.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.formulario {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: var(white);
+    border-radius: 11px;
+}
+
+.formulario h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.formulario from {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .username {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+
+    &::placeholder {
+		color: #adadad;
+	}
+    
+	&:focus:required {
+		border-color: #adadad;
+		outline: 0 none;
+	}
+	&:required:placeholder-shown {
+		border-bottom-color: green;
+	}
+    &:required:not(:placeholder-shown):invalid {
+        border-bottom-color:red;
+    }
+
+    &:required:not(:placeholder-shown):valid {
+        border-bottom-color: green;
+    }
+
+    &:required:focus:invalid {
+        border-bottom-color:red;
+    }
+    
+}
+
+.username i {
+    position: absolute;
+    color: #DC5F00;
+    font-size: 1.4rem;
+    top: 13px;
+    right: 2%;
+}
+
+form .fecha {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.username input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.username label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.fecha .date {
+    position: absolute;
+    top: -5px;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.username span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffe5d0;
+    transition: .5s;
+}
+
+.username input:focus ~ label,
+.username input:user-valid ~ label {
+    top: -5px;
+    color: #d6935f;
+}
+
+.username input:focus ~ span::before,
+.username input:focus ~ span::before {
+    width: 100%;
+}
+
+.username:focus + .correo,
+.username:valid + .correo{
+    top: -5px;
+    color: #ffe5d0;
+}
+
+form .username input:required:focus:invalid {
+    border-bottom-color:red;
+}
+
+.recordar {
+    margin: -5px 0 20px 5px;
+    color: #DC5F00;
+    cursor: pointer;
+}
+
+.recordar:hover {
+    text-decoration: underline;
+}
+
+input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #DC5F00;
+    background: #DC5F00;
+    border-radius: 25px;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+}
+
+input[type="submit"]:hover {
+    border-color: #a54700;
+    transition: .5s;
+    background: #a54700;
+}
+
+.registrarse {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.registrarse a {
+    color: #DC5F00;
+    text-decoration: none;
+}
+
+.registrarse a:hover {
+    text-decoration: underline;
+}
+
+.sombra {
+    -webkit-box-shadow: 10px 11px 35px -13px rgba(0,0,0,0.58);
+    -moz-box-shadow: 10px 11px 35px -13px rgba(0,0,0,0.58);
+    box-shadow: 10px 11px 35px -13px rgba(0,0,0,0.58);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1.1rem;
+}
+
+.icon-home {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.icon-home i {
+    color: #DC5F00; /* Color de la app */
+    font-size: 1.6rem;
+    text-decoration: none;
+    align-items: right;
+}
+
+.icon-home i:hover {
+    color: #a54700; /* Color más oscuro al pasar el cursor */
+}

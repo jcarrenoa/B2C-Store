@@ -1,0 +1,806 @@
+/* Reseteo de estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #373A40;
+    color: #EEEEEE;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 50px; /* Ajusta el tamaño del logo según sea necesario */
+    filter: invert(56%) sepia(50%) saturate(7258%) hue-rotate(9deg) brightness(94%) contrast(101%);
+}
+
+header .search-bar,
+header .form-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+}
+
+header .search-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+header .search-bar button {
+    padding: 10px 20px; /* Aumenta el padding horizontal para hacer el botón más grande */
+    background-color: #DC5F00;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    color: #FFFFFF;
+    margin-left: -4px; /* Ajusta el margen para corregir la posición del botón */
+}
+
+header .nav-links, header .account-buttons {
+    display: flex;
+    align-items: center;
+}
+
+header .nav-links a, header .account-buttons a {
+    color: #EEEEEE;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+header .nav-links a:hover, header .account-buttons a:hover {
+    background-color: #686D76;
+    border-radius: 4px;
+}
+
+/* Estilos para el index */
+
+/* Estilos para el carrusel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
+    overflow: hidden;
+    height: 45vh; /* Ajusta la altura del carrusel */
+}
+
+.carousel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 20%);
+    z-index: 1;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: none;
+    clip-path: inset(0 20%); /* Recorta un 10% de ambos lados */
+}
+
+.carousel img.active {
+    display: block;
+}
+
+.carousel .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel .controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.carousel .controls button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.contect {
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #373A40;
+}
+
+.contect p {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.contect .text-offer, 
+.contect .title-offer {
+    color: #FFFFFF;
+}
+
+.box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.box-container .box {
+    height: 11rem;
+    width: 17rem;
+    padding: 20px;
+    margin: 10px;
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.asociados .titulo-asociados {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.asociados .titulo-asociados p {
+    padding-top: 10px;
+}
+
+.empresas {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.empresas img {
+    display: inline;
+    width: 200px;
+    height: 200px;
+    max-height: 16%;
+    padding: 14px;
+    margin: 0 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20%;
+}
+
+/* Estilos para la sección de productos */
+
+.imagen-portada {
+    height: 300px; /* Altura de la imagen de portada */
+    background-image: linear-gradient(to bottom, #ffffff00, #eeeeee), url(/media/backgrounds/background-tienda.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.productos {
+    width: 80%; /* Puedes ajustar el ancho según sea necesario */
+    max-width: 1200px; /* Establece un ancho máximo para evitar que se extienda demasiado */
+    margin: auto; /* Centra el main horizontalmente */
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+.portfolio-filters{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+  
+.portfolio-filters ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    text-align: center;
+}
+  
+.portfolio-filters li {
+  margin-right: 10px; /* Espacio entre los elementos */
+  display: inline-block;
+}
+
+.portfolio-filters a {
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  border: 2px solid #ccc; /* Borde del cuadro */
+  border-radius: 5px; /* Esquinas redondeadas */
+  color: #333; /* Color del texto por defecto */
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+}
+
+.portfolio-filters a.active,
+.portfolio-filters a:hover {
+  background-color: #df9b68; /* Color de fondo cuando se selecciona o pasa el ratón por encima */
+  color: #000; /* Color del texto cuando se selecciona o pasa el ratón por encima */
+}
+
+/* Estilo específico para el elemento "All" */
+.portfolio-filters a#all {
+background-color: transparent; /* Fondo transparente para el elemento "All" */
+border: 2px solid transparent; /* Borde transparente para el elemento "All" */
+color: #333; /* Color de texto para el elemento "All" */
+}
+
+.container-items{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item{
+  border-radius: 10px;
+}
+
+.item:hover{
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
+}
+
+.item img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+  transition: all .5s;
+}
+
+.item figure{
+  overflow: hidden;
+}
+
+.item:hover img{
+  transform: scale(1.2);
+}
+
+.info-product{
+  padding: 15px 30px;
+  line-height: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.price{
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.info-product button{
+  border: none;
+  background: none;
+  background-color: #000;
+  color: #fff;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.info-product h2 {
+  color: #000;
+
+  /* Body Small/Body Small, 400 */
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  
+}
+
+.descubre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la sección de enlaces (Descuentos y Eventos)*/
+
+.seccion-enlaces {
+    display: flex;
+    justify-content: space-around ;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    gap: -200px; /* Ajusta el espacio horizontal entre enlaces */
+  }
+  
+  .enlace {
+    margin: 10px;
+    text-align: center;
+  
+  }
+  
+  .enlace:hover {
+    transform: scale(1.1); /* Escala el elemento al 110% en el hover */
+  }
+  
+  
+  .enlace img {
+      width: 128px;
+      height: 128px;
+    border-radius: 10px; /* Ajusta el radio del borde según sea necesario */
+    margin-bottom: 10px; /* Espaciado inferior entre la imagen y el texto */
+  }
+  
+  .enlace p {
+    font-weight: bold;
+    color: #333; /* Ajusta el color del texto según sea necesario */
+    /* Body XL/Body XL, 500 */
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    line-height: 150%; /* 30px */
+  }
+
+/* Estilos para la sección de contacto */
+
+/* Contact Section Styles */
+/* Contact Section Styles */
+
+#contact {
+    position: relative;
+    background: url('/media/otros/background-contact.jpg') no-repeat center center/cover;
+    color: #EEEEEE;
+    padding: 40px 20px;
+}
+
+.messages-contact {
+    margin-top: 20px;
+    padding: 10px;
+    background: #acff8b;
+    color: #000000;
+    border-radius: 4px;
+}
+
+#contact .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    z-index: 1;
+}
+
+.contact-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.contact-container h2 {
+    color: #DC5F00;
+    margin-bottom: 20px;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    color: #000000;
+}
+
+.form-group select {
+    appearance: none; /* Para quitar las flechas del select en algunos navegadores */
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    text-align: left;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    align-content: left;
+}
+
+.contact-container button {
+    padding: 10px 20px;
+    background-color: #DC5F00;
+    color: #EEEEEE;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-container button:hover {
+    background-color: #c35400;
+}
+
+/* Additional Contact Methods Section Styles */
+#additional-contact {
+    background-color: #373A40;
+    color: #EEEEEE;
+    padding: 40px 20px;
+}
+
+.additional-contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.additional-contact-container h3 {
+    color: #DC5F00;
+    margin-bottom: 20px;
+}
+
+.additional-contact-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-contact-container li {
+    margin: 10px 0;
+}
+
+.additional-contact-container a {
+    color: #EEEEEE;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.additional-contact-container a:hover {
+    text-decoration: underline;
+}
+
+.additional-contact-container i {
+    margin-right: 8px;
+}
+
+/* Estilos para perfil de usuario */
+
+.main-perfil {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cover-photo-perfil {
+    width: 100%;
+    height: 200px;
+}
+
+.profile-section {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin-right: 20px;
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-info h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.profile-info p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+.menu-perfil {
+    display: flex;
+    justify-content: space-around;
+    background-color: #373A40;
+    color: #fff;
+}
+
+.menu-perfil a {
+    padding: 15px 20px;
+    display: block;
+    flex: 1;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-perfil a:hover {
+    background-color: #686D76;
+}
+
+/* Estilos para la informacion basica del perfil*/
+
+.container-info {
+    padding: 20px;
+}
+
+.container-info h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.container-info p {
+    font-size: 18px;
+    color: #555;
+}
+
+.container-info strong {
+    color: #333;
+}
+
+/* Estilos para la sección de ordenes del perfil */
+
+.container-info .fact-codigo {
+    padding-bottom: 8px;
+}
+
+.container-info .href-fact {
+    padding-bottom: 15px;
+}
+
+/* Estilos para la sección de configuracion del perfil */
+
+.form-container-update {
+    background-color: #fff;
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container-update h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000000;
+}
+.form-group-update {
+    margin-bottom: 15px;
+    padding: 8px 0;
+}
+.form-group-update label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-group-update input,
+.form-group-update select,
+.form-group-update textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.form-group-update input[type="file"] {
+    padding: 3px;
+}
+.form-group-update .checkbox-group-update {
+    display: flex;
+    align-items: center;
+}
+.form-group-update .checkbox-group-update label {
+    margin: 0 0 0 5px;
+}
+.form-container-update button {
+    padding: 10px 20px;
+    background-color: #DC5F00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.form-container-update button:hover {
+    background-color: #c35400;
+}
+
+/* Estilos para la seccion del carrito de compras */
+
+.main-cart {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.container-cart {
+    max-width: 92%;
+    margin: 0 auto;
+    padding: 20px 0;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+.header-cart {
+    background-color: #DC5F00;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+}
+.header-cart h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.cart-items {
+    margin: 20px 0;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #686D76;
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+.cart-item img {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+}
+.cart-item-details {
+    flex: 1;
+}
+.cart-item-title {
+    font-size: 18px;
+    margin: 0;
+    color: #373A40;
+}
+.cart-item-price {
+    color: #DC5F00;
+    font-size: 16px;
+}
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.cart-item-quantity input {
+    width: 40px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 5px;
+    border: 1px solid #686D76;
+    border-radius: 4px;
+}
+.cart-summary {
+    text-align: right;
+    margin: 20px 0;
+}
+.cart-summary h2 {
+    color: #373A40;
+}
+.cart-summary p {
+    font-size: 18px;
+    color: #373A40;
+}
+.checkout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #DC5F00;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 18px;
+}
+.checkout-button:hover {
+    background-color: #a94b00;
+}
+
+/* Estilos para el footer */
+
+footer {
+    background-color: #373A40;
+    color: #EEEEEE;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-links a {
+    color: #EEEEEE;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+footer .footer-links a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .search-bar {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    header .search-bar input[type="text"] {
+        width: calc(100% - 40px);
+    }
+
+    header .nav-links, header .account-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    header .nav-links a, header .account-buttons a {
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+    }
+}
+
+

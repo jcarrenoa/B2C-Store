@@ -1,0 +1,17 @@
+{% extends 'perfil.html' %}
+{% block menu_perfil %}
+{% load static %}
+
+<div class="container-info">
+    <h1>Facturacion</h1>
+    {% for factura in facturacion %}
+        <p class="fact-codigo"><strong>Codigo de factura:</strong> {{ factura.idOrden }}</p>
+        <li class="href-fact">
+            <a href="{{ factura.ArchivoPDF.url }}" target="_blank">{{ factura.Fecha }}</a>
+        </li>
+    {% empty %}
+        <li>No hay facturas disponibles.</li>
+    {% endfor %}
+</div>
+
+{% endblock %}

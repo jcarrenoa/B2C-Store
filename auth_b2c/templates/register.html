@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block head_title %}Registro{% endblock %}
+{% block content %}
+    <div class="formulario sombra">
+        <div class="icon-home">
+            <a href="{% url 'index' %}">
+                <i class="fa-solid fa-home"></i>
+            </a>
+        </div>
+        <h1>Registro</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="username">
+                <i class="fa-solid fa-user"></i>
+                {{ form.username }}
+                <label for="#">Nombre de usuario</label>
+            </div>
+            <div class="username">
+                <i class="fa-solid fa-lock"></i>
+                {{ form.password1 }}
+                <label for="#">Contraseña</label>
+            </div>
+            <div class="username">
+                <i class="fa-solid fa-lock"></i>
+                {{ form.password2 }}
+                <label for="#">Confirmar contraseña</label>
+            </div> 
+            <div class="username">
+                <i class="fa-solid fa-envelope"></i>
+                {{ form.email }}
+                <label for="#" class="correo">Correo</label> 
+            </div>
+            <div class="username">
+                <i class="fa-solid fa-user"></i>
+                {{ form.first_name }}
+                <label for="#">Nombre</label>
+            </div>
+            <div class="username">
+                <i class="fa-solid fa-user"></i>
+                {{ form.last_name }}
+                <label for="#">Apellido</label>
+            </div>
+            <div class="username fecha">
+                {{ form.nacimiento }}
+                <label for="#" class="date">Fecha de nacimiento</label>
+            </div>
+            <input type="submit" value="Registrarse" id="submit">
+            <div class="registrarse">
+                ¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesion</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

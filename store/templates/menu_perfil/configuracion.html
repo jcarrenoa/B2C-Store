@@ -1,0 +1,25 @@
+{% extends 'perfil.html' %}
+{% block menu_perfil %}
+{% load static %}
+
+<div class="form-container-update">
+    <h1>Actualizar Perfil</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group-update">
+            <label for="imagen-update">Foto de Perfil</label>
+            {{ form.imagen }}
+        </div>
+        <div class="form-group-update">
+            <label for="foto_portada-update">Foto de Portada</label>
+            {{ form.portada }}
+        </div>
+        <div class="form-group-update">
+            <label for="nacimiento-update">Fecha de Nacimiento</label>
+            {{ form.nacimiento }}
+        </div>
+        <button type="submit" class="button-update">Guardar cambios</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'base_store.html' %}
+{% block content %}
+{% load static %}
+
+<div class="carousel">
+    <img class="image-index active" style="background-image: linear-gradient(to bottom, #ffffff00, #eeeeee), url(/media/backgrounds/background-inicio1.jpg); background-color: rgba(0, 0, 0, 0.253);" alt="Imagen 1" class="active">
+    <img class="image-index" style="background-image: linear-gradient(to bottom, #ffffff00, #eeeeee), url(/media/backgrounds/background-inicio2.jpg); background-color: rgba(0, 0, 0, 0.253);" alt="Imagen 2">
+    <img class="image-index" style="background-image: linear-gradient(to bottom, #ffffff00, #eeeeee), url(/media/backgrounds/background-inicio3.jpg); background-color: rgba(0, 0, 0, 0.253);" alt="Imagen 3">
+    <div class="controls">
+        <button onclick="prevSlide()">&#10094;</button>
+        <button onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+
+<main>
+    <section class="contect offer">
+        <h2 class="title-offer">¿Que ofrecemos?</h2>
+        <p class="text-offer">En nuestra empresa, ofrecemos una variedad de servicios y productos de alta calidad diseñados para satisfacer las necesidades de nuestros clientes.</p>
+        
+        <div class="box-container">
+            <div class="box">
+                <i class="fa-regular fa-clock"></i>
+                <h3>Respuesta Rápida</h3>
+                <p>Nos comprometemos a responder rápidamente a las consultas y necesidades de nuestros clientes.</p>
+            </div>
+            <div class="box">
+                <i class="fa-regular fa-money-bill-1"></i>
+                <h3>Precios Competitivos</h3>
+                <p>Ofrecemos precios accesibles sin comprometer la calidad, garantizando una excelente relación costo-beneficio.</p>
+            </div>
+            <div class="box">
+                <i class="fa-solid fa-user-group"></i>
+                <h3>Equipo Experto</h3>
+                <p>Contamos con un equipo de profesionales altamente capacitados y con amplia experiencia.</p>
+            </div>
+    </section>
+
+    <section class="asociados" id="services">
+
+        <div class="titulo-asociados"> 
+            <h2>Asociados</h2>
+            <p>Trabajamos con una red de proveedores de confianza para garantizar la calidad y la puntualidad de nuestros productos y servicios.</p>
+        </div> 
+        
+        <div class="empresas">
+            {% for empresa in proveedores %}
+                <img src="{{ empresa.imagen.url }}" alt="{{ empresa.nombre }}">
+            {% endfor %}
+        </div>
+        
+    </section>
+</main>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    
+    function showSlide(index) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+    
+    // Cambiar automáticamente cada 5 segundos
+    setInterval(nextSlide, 5000);
+</script>
+
+{% endblock %}

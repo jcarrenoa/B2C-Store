@@ -1,0 +1,70 @@
+{% extends 'base_store.html' %}
+{% block content %}
+{% load static %}
+
+<main class="productos">
+  <div class="imagen-portada">
+  </div>
+  <h1>Productos</h1>
+  <p>Filtros de busqueda</p>
+  <div id="filters" class="portfolio-filters">
+      <ul class="list-inline">
+                <li><a id="all" href="#" data-filter="*" class="active"><h5>All</h5></a></li>	
+                {% for categoria in categorias %}
+                  <li><a href="#" data-filter=".branding"><h5>{{ categoria.Nombre }}</h5></a></li>
+                {% endfor %}
+      </ul>
+  </div>
+  <div class="container-items">
+		{% csrf_token %}
+		{% for producto in productos %}
+			<div class="item">
+				<figure>
+					<img
+						src="{{ producto.imagen.url }}"
+						alt="producto"
+					/>
+				</figure>
+				<div class="info-product">
+					<h2>{{ producto.Nombre }}</h2>
+					<p class="price">${{ producto.Precio }}</p>
+          {% if user.is_authenticated %}
+            <form action="{% url 'agregar_al_carrito' producto.idProducto %}" method="POST">
+              {% csrf_token %}
+              <button type="submit">Añadir al carrito</button>
+            </form>
+          {% else %}
+            <button type="submit">Añadir al carrito</button>
+          {% endif %}
+					
+				</div>
+			</div>
+    {% empty %}
+      <h1>No hay productos</h1>
+    {% endfor %}
+
+		<!-- {% if isnull%}
+			<h1>No hay productos</h1>
+		{% endif %}
+    -->
+	</div>
+  <div class="descubre">
+    <h1>Descubre</h1>
+  </div>
+  <section class="seccion-enlaces">
+    <div class="enlace">
+        <a href="{% url 'descuentos' %}">
+            <img src="/media/otros/desc.png" alt="Descuento">
+            <p>Descuentos</p>
+        </a>
+    </div>
+    <div class="enlace">
+        <a href="{% url 'eventos' %}">
+            <img src="/media/otros/event.png" alt="Eventos">
+            <p>Eventos</p>
+        </a>
+    </div>
+  </section>
+</main>
+
+{% endblock %}

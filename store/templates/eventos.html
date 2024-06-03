@@ -1,0 +1,40 @@
+{% extends 'base_store.html' %}
+{% block content %}
+{% load static %}
+
+<main class="productos">
+	<h1>Eventos</h1>
+    <div class="container-items">
+		{% csrf_token %}
+		{% for evento in eventos %}
+			<div class="item">
+				<figure>
+					<img
+						src="{{ evento.imagen.url }}"
+						alt="producto"
+					/>
+				</figure>
+				<div class="info-product">
+					<h2> {{ evento.Beneficio }} </h2>
+					<h3 class="price">{{ evento.FechaInicio }} - {{ evento.FechaFinal }}</h3>
+				</div>
+			</div>
+		{% empty %}
+            <h2>No hay eventos disponibles</h2>
+        {% endfor %}
+	</div>
+
+    <div class="descubre">
+      <h1>Descubre</h1>
+    </div>
+    <section class="seccion-enlaces">
+      <div class="enlace">
+          <a href="{% url 'descuentos' %}">
+              <img src="/media/otros/desc.png" alt="Descuento">
+              <p>Descuentos</p>
+          </a>
+      </div>
+	</section>
+  </main>
+
+{% endblock %}
