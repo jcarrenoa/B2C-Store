@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-*v16_*6cswdt=!rpfukshl53gqdp$wfv0s&6-lq7fhvsic57j3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['b2c-mvp.database.windows.net', '127.0.0.1']
+ALLOWED_HOSTS = ['b2c-mvp.database.windows.net', '127.0.0.1', 'b2c-store.azurewebsites.net']
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_TRUSTED_ORIGINS = ['https://b2c-mvp.database.windows.net','https://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://b2c-mvp.database.windows.net','https://127.0.0.1', 'https://b2c-store.azurewebsites.net']
 
 # Application definition
 
