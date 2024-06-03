@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-*v16_*6cswdt=!rpfukshl53gqdp$wfv0s&6-lq7fhvsic57j3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['proyectofinalbd.azurewebsites.net', '127.0.0.1']
+ALLOWED_HOSTS = ['b2c-mvp.database.windows.net', '127.0.0.1']
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_TRUSTED_ORIGINS = ['https://proyectofinalbd.azurewebsites.net','https://127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://b2c-mvp.database.windows.net','https://127.0.0.1']
 
 # Application definition
 
@@ -77,16 +77,30 @@ WSGI_APPLICATION = 'b2c.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': "mssql",
+#         'NAME': 'B2C_DB',
+#         'USER': 'sa',
+#         'PASSWORD': '123456',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': "mssql",
-        'NAME': 'B2C_DB',
-        'USER': 'sa',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '',
+        "ENGINE": "mssql",
+        'NAME': 'B2C_DB_Azure',
+        'USER': 'b2cadminmvp',
+        'PASSWORD': 'Admin123456',
+        'HOST': 'b2c-mvp.database.windows.net',
+        'PORT': '1433',
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
+            'driver': 'ODBC Driver 18 for SQL Server',
         }
     }
 }
