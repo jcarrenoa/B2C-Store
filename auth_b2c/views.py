@@ -9,6 +9,20 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 
 def login(request):
+    print(request.method)
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = Perfil.objects.filter(username=username).first()
+        if user is not None:
+            if user.check_password(password):
+                return redirect('/')
+            else:
+                print('Contraseña incorrecta')
+                messages.error(request, 'Contraseña incorrecta')
+        else:
+            print('Usuario no existe')
+            messages.error(request, 'Usuario no existe')
     return render(request, 'login.html')
 
 def register(request):

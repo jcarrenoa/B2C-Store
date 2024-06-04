@@ -187,7 +187,7 @@ def facturacion(request):
         nombre = request.user.first_name
         mail = create_mail(
             correo,
-            'Gracias por contactarnos',
+            'Genial, se ha realizado tu compra correctamente!',
             'correos/factura_pdf.html',
             {
                 'user': nombre

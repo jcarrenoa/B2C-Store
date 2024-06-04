@@ -14,12 +14,14 @@
     <link rel="icon" type="image/png" href="{% static 'images/B2C.png' %}">
 </head>
 <body>
-    {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-    {% endfor %}
     {% block content %}
     {% endblock %}
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 </body>
 </html>
